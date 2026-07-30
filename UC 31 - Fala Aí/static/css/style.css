@@ -1,0 +1,396 @@
+/* ===========================
+   GERAL
+=========================== */
+
+body{
+
+    background:#f4f7fc;
+
+    font-family:'Segoe UI',sans-serif;
+
+    color:#2d3748;
+
+}
+
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+
+    width:260px;
+
+    min-height:100vh;
+
+    background:#1f2937;
+
+    padding:30px 20px;
+
+    position:fixed;
+
+}
+
+.logo{
+
+    color:#fff;
+
+    font-weight:700;
+
+    margin-bottom:40px;
+
+}
+
+.logo i{
+
+    color:#6366f1;
+
+}
+
+.sidebar .nav-link{
+
+    color:#cbd5e1;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+.sidebar .nav-link:hover{
+
+    background:#374151;
+
+    color:#fff;
+
+}
+
+.sidebar .nav-link i{
+
+    margin-right:10px;
+
+}
+
+
+/* ===========================
+   CONTEÚDO
+=========================== */
+
+.content{
+
+    margin-left:260px;
+
+    padding:35px;
+
+    width:100%;
+
+}
+
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+
+    border-radius:15px;
+
+    padding:18px 25px;
+
+}
+
+
+/* ===========================
+   CARDS
+=========================== */
+
+.card{
+
+    border:none;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.card-header{
+
+    border:none;
+
+    font-weight:600;
+
+}
+
+
+/* ===========================
+   DASHBOARD
+=========================== */
+
+.card h2{
+
+    color:#6366f1;
+
+    font-weight:bold;
+
+}
+
+.card h6{
+
+    color:#64748b;
+
+}
+
+
+/* ===========================
+   BOTÕES
+=========================== */
+
+.btn-primary{
+
+    background:#6366f1;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#4f46e5;
+
+}
+
+.btn-warning{
+
+    color:white;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+}
+
+
+/* ===========================
+   FORMULÁRIOS
+=========================== */
+
+.form-control,
+
+.form-select{
+
+    border-radius:12px;
+
+    border:1px solid #d1d5db;
+
+    padding:12px;
+
+}
+
+.form-control:focus,
+
+.form-select:focus{
+
+    box-shadow:0 0 0 .2rem rgba(99,102,241,.25);
+
+    border-color:#6366f1;
+
+}
+
+
+/* ===========================
+   TABELAS
+=========================== */
+
+.table{
+
+    vertical-align:middle;
+
+}
+
+.table thead{
+
+    background:#eef2ff;
+
+}
+
+.table-hover tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge{
+
+    padding:8px 14px;
+
+    font-size:.8rem;
+
+}
+
+
+/* ===========================
+   ALERTAS
+=========================== */
+
+.alert{
+
+    border:none;
+
+    border-radius:12px;
+
+}
+
+
+/* ===========================
+   MODO ESCURO
+=========================== */
+
+.dark-mode{
+
+    background:#0f172a;
+
+    color:#f8fafc;
+
+}
+
+.dark-mode .content{
+
+    background:#0f172a;
+
+}
+
+.dark-mode .card{
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+.dark-mode .navbar{
+
+    background:#1e293b !important;
+
+}
+
+.dark-mode .table{
+
+    color:white;
+
+}
+
+.dark-mode .table thead{
+
+    background:#334155;
+
+}
+
+.dark-mode .table-hover tbody tr:hover{
+
+    background:#273449;
+
+}
+
+.dark-mode .form-control,
+
+.dark-mode .form-select{
+
+    background:#334155;
+
+    color:white;
+
+    border:1px solid #475569;
+
+}
+
+.dark-mode .sidebar{
+
+    background:#020617;
+
+}
+
+.dark-mode .nav-link{
+
+    color:#cbd5e1;
+
+}
+
+
+/* ===========================
+   IMAGENS
+=========================== */
+
+img{
+
+    max-width:100%;
+
+}
+
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media(max-width:991px){
+
+.sidebar{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:auto;
+
+}
+
+.content{
+
+    margin-left:0;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.content{
+
+    padding:20px;
+
+}
+
+.logo{
+
+    text-align:center;
+
+}
+
+.sidebar .nav-link{
+
+    text-align:center;
+
+}
+
+}
