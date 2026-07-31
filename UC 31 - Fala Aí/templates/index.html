@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h2 class="mb-4">
+    Dashboard
+</h2>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h6>Total</h6>
+
+                <h2>{{ total }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h6>Sugestões</h6>
+
+                <h2>{{ sugestoes }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h6>Reclamações</h6>
+
+                <h2>{{ reclamacoes }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h6>Elogios</h6>
+
+                <h2>{{ elogios }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card mt-5 shadow-sm border-0">
+
+    <div class="card-header">
+
+        Últimas manifestações
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table table-hover mb-0">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Título</th>
+                    <th>Data</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for mensagem in recentes %}
+
+                <tr>
+
+                    <td>{{ mensagem.id }}</td>
+
+                    <td>{{ mensagem.tipo }}</td>
+
+                    <td>{{ mensagem.titulo }}</td>
+
+                    <td>{{ mensagem.data }}</td>
+
+                </tr>
+
+                {% else %}
+
+                <tr>
+
+                    <td colspan="4" class="text-center">
+
+                        Nenhuma manifestação cadastrada.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
