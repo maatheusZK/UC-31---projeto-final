@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+
+            <div class="card shadow p-4">
+
+
+                <h2 class="text-center mb-4">
+                    Login Administrador
+                </h2>
+
+
+                <form method="POST">
+
+
+                    <label class="form-label">
+                        Usuário
+                    </label>
+
+                    <input 
+                    type="text"
+                    name="usuario"
+                    class="form-control mb-3"
+                    required>
+
+
+                    <label class="form-label">
+                        Senha
+                    </label>
+
+                    <input 
+                    type="password"
+                    name="senha"
+                    class="form-control mb-4"
+                    required>
+
+
+                    <button class="btn btn-primary w-100">
+                        Entrar
+                    </button>
+
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

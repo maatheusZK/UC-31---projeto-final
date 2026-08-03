@@ -1,0 +1,237 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h2 class="mb-1">
+            <i class="bi bi-card-list"></i>
+            Mensagens
+        </h2>
+
+        <small class="text-muted">
+            {{ mensagens|length }} manifestação(ões) encontrada(s)
+        </small>
+
+    </div>
+
+    <a href="{{ url_for('cadastrar') }}" class="btn btn-primary">
+
+        <i class="bi bi-plus-circle"></i>
+        Nova Manifestação
+
+    </a>
+
+</div>
+
+<div class="card shadow border-0">
+
+    <div class="card-header bg-light">
+
+        <strong>
+            Lista de manifestações
+        </strong>
+
+    </div>
+
+    <div class="card-body">
+
+        <form
+            action="{{ url_for('mensagens') }}"
+            method="GET"
+            class="row g-3 mb-4">
+
+            <div class="col-md-9">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    name="pesquisa"
+                    value="{{ request.args.get('pesquisa', '') }}"
+                    placeholder="Pesquisar por título, descrição ou tipo...">
+
+            </div>
+
+            <div class="col-md-2 d-grid">
+
+                <button type="submit" class="btn btn-primary">
+
+                    <i class="bi bi-search"></i>
+                    Pesquisar
+
+                </button>
+
+            </div>
+
+            <div class="col-md-1 d-grid">
+
+                <a
+                    href="{{ url_for('mensagens') }}"
+                    class="btn btn-outline-secondary"
+                    title="Limpar pesquisa">
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                </a>
+
+            </div>
+
+        </form>
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-light">
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Tipo</th>
+
+                        <th>Título</th>
+
+                        <th>Descrição</th>
+
+                        <th>Data</th>
+
+                        <th class="text-center">Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for mensagem in mensagens %}
+
+                    <tr>
+
+                        <td>
+
+                            <strong>#{{ mensagem.id }}</strong>
+
+                        </td>
+
+                        <td>
+
+                            {% if mensagem.tipo == "Sugestão" %}
+
+                                <span class="badge bg-primary">
+
+                                    {{ mensagem.tipo }}
+
+                                </span>
+
+                            {% elif mensagem.tipo == "Reclamação" %}
+
+                                <span class="badge bg-danger">
+
+                                    {{ mensagem.tipo }}
+
+                                </span>
+
+                            {% else %}
+
+                                <span class="badge bg-success">
+
+                                    {{ mensagem.tipo }}
+
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+
+                            {{ mensagem.titulo }}
+
+                        </td>
+
+                        <td>
+
+                            {{ mensagem.descricao|truncate(80, True, "...") }}
+
+                        </td>
+
+                        <td>
+
+                            <small class="text-muted">
+
+                                {{ mensagem.data }}
+
+                            </small>
+
+                        </td>
+
+                        <td class="text-center">
+
+                            <div class="btn-group" role="group">
+
+                                <a
+                                    href="{{ url_for('editar', id=mensagem.id) }}"
+                                    class="btn btn-warning btn-sm"
+                                    title="Editar">
+
+                                    <i class="bi bi-pencil"></i>
+
+                                </a>
+
+                                <form
+                                    action="{{ url_for('excluir', id=mensagem.id) }}"
+                                    method="POST"
+                                    class="d-inline"
+                                    onsubmit="return confirm('Deseja realmente excluir esta manifestação?')">
+
+                                    <button
+                                        type="submit"
+                                        class="btn btn-danger btn-sm"
+                                        title="Excluir">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    {% else %}
+
+                    <tr>
+
+                        <td colspan="6" class="text-center py-5">
+
+                            <i class="bi bi-inbox display-5 text-muted"></i>
+
+                            <p class="mt-3 mb-0 text-muted">
+
+                                Nenhuma manifestação encontrada.
+
+                            </p>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

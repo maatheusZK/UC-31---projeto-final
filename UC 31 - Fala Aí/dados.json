@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "tipo": "Sugestão",
+        "titulo": "Computadores quebrados",
+        "descricao": "oi",
+        "data": "31/07/2026 15:02"
+    },
+    {
+        "id": 2,
+        "tipo": "Elogio",
+        "titulo": "Professores",
+        "descricao": "Ótimos profissionais.",
+        "data": "31/07/2026 15:20"
+    }
+]
