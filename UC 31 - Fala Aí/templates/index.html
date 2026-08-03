@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+
+<div class="page-title">
+
+    <h2>
+        <i class="bi bi-speedometer2"></i>
+        Dashboard
+    </h2>
+
+    <p>
+        Acompanhe as manifestações recebidas pelo sistema.
+    </p>
+
+</div>
+
+
+
+
+<!-- ==========================
+     ESTATÍSTICAS
+========================== -->
+
+
+<div class="row g-4">
+
+
+    <div class="col-xl-3 col-md-6">
+
+
+        <div class="dashboard-card">
+
+
+            <div>
+
+
+                <span>
+                    Total
+                </span>
+
+
+                <h2>
+                    {{ total }}
+                </h2>
+
+
+            </div>
+
+
+            <i class="bi bi-chat-left-text"></i>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="col-xl-3 col-md-6">
+
+
+        <div class="dashboard-card">
+
+
+            <div>
+
+
+                <span>
+                    Sugestões
+                </span>
+
+
+                <h2>
+                    {{ sugestoes }}
+                </h2>
+
+
+            </div>
+
+
+            <i class="bi bi-lightbulb"></i>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="col-xl-3 col-md-6">
+
+
+        <div class="dashboard-card">
+
+
+            <div>
+
+
+                <span>
+                    Reclamações
+                </span>
+
+
+                <h2>
+                    {{ reclamacoes }}
+                </h2>
+
+
+            </div>
+
+
+            <i class="bi bi-exclamation-triangle"></i>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="col-xl-3 col-md-6">
+
+
+        <div class="dashboard-card">
+
+
+            <div>
+
+
+                <span>
+                    Elogios
+                </span>
+
+
+                <h2>
+                    {{ elogios }}
+                </h2>
+
+
+            </div>
+
+
+            <i class="bi bi-heart"></i>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ==========================
+     ÚLTIMAS MANIFESTAÇÕES
+========================== -->
+
+
+<div class="card mt-5">
+
+
+    <div class="card-header">
+
+
+        <i class="bi bi-clock-history"></i>
+
+
+        Últimas manifestações
+
+
+    </div>
+
+
+
+
+    <div class="table-responsive">
+
+
+
+        <table class="table">
+
+
+            <thead>
+
+
+                <tr>
+
+
+                    <th>
+                        ID
+                    </th>
+
+
+                    <th>
+                        Tipo
+                    </th>
+
+
+                    <th>
+                        Título
+                    </th>
+
+
+                    <th>
+                        Data
+                    </th>
+
+
+                </tr>
+
+
+            </thead>
+
+
+
+            <tbody>
+
+
+
+            {% for mensagem in recentes %}
+
+
+
+                <tr>
+
+
+                    <td>
+
+                        #{{ mensagem.id }}
+
+                    </td>
+
+
+                    <td>
+
+
+                        {% if mensagem.tipo == "Sugestão" %}
+
+
+                        <span class="badge bg-primary">
+
+                            Sugestão
+
+                        </span>
+
+
+
+                        {% elif mensagem.tipo == "Reclamação" %}
+
+
+
+                        <span class="badge bg-danger">
+
+                            Reclamação
+
+                        </span>
+
+
+
+                        {% else %}
+
+
+
+                        <span class="badge bg-success">
+
+                            Elogio
+
+                        </span>
+
+
+
+                        {% endif %}
+
+
+                    </td>
+
+
+
+                    <td>
+
+                        {{ mensagem.titulo }}
+
+                    </td>
+
+
+
+                    <td>
+
+                        {{ mensagem.data }}
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+            {% else %}
+
+
+
+                <tr>
+
+                    <td colspan="4" class="text-center">
+
+
+                        Nenhuma manifestação cadastrada.
+
+
+                    </td>
+
+                </tr>
+
+
+
+            {% endfor %}
+
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

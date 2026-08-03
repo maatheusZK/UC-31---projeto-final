@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+
+<div class="form-container">
+
+
+<div class="card">
+
+
+<div class="card-header">
+
+
+    <h3>
+
+        <i class="bi bi-send"></i>
+
+        Nova manifestação
+
+
+    </h3>
+
+
+</div>
+
+
+
+
+<div class="card-body">
+
+
+
+<form 
+method="POST"
+action="{{ url_for('cadastrar') }}">
+
+
+
+
+
+<label class="form-label">
+
+    Tipo de manifestação
+
+</label>
+
+
+
+
+<div class="row g-3 mb-4">
+
+
+
+<div class="col-md-4">
+
+
+<label class="choice-card">
+
+
+<input 
+type="radio"
+name="tipo"
+value="Sugestão"
+checked>
+
+
+<span>
+
+
+<i class="bi bi-lightbulb"></i>
+
+
+Sugestão
+
+
+</span>
+
+
+</label>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<label class="choice-card">
+
+
+<input 
+type="radio"
+name="tipo"
+value="Reclamação">
+
+
+
+<span>
+
+
+<i class="bi bi-exclamation-triangle"></i>
+
+
+Reclamação
+
+
+</span>
+
+
+
+</label>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<label class="choice-card">
+
+
+<input 
+type="radio"
+name="tipo"
+value="Elogio">
+
+
+
+<span>
+
+
+<i class="bi bi-heart"></i>
+
+
+Elogio
+
+
+</span>
+
+
+
+</label>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<label 
+for="titulo"
+class="form-label">
+
+
+Título
+
+
+</label>
+
+
+
+<input
+
+type="text"
+
+id="titulo"
+
+name="titulo"
+
+class="form-control"
+
+placeholder="Digite o título"
+
+maxlength="100"
+
+required>
+
+
+
+
+<br>
+
+
+
+
+
+
+<label
+
+for="descricao"
+
+class="form-label">
+
+
+Descrição
+
+
+</label>
+
+
+
+
+<textarea
+
+id="descricao"
+
+name="descricao"
+
+class="form-control"
+
+rows="6"
+
+placeholder="Digite sua mensagem"
+
+maxlength="1000"
+
+required></textarea>
+
+
+
+
+
+
+<div class="form-actions mt-4">
+
+
+
+<a
+
+href="{{ url_for('index') }}"
+
+class="btn btn-secondary">
+
+
+Cancelar
+
+
+</a>
+
+
+
+
+
+<button
+
+class="btn btn-primary"
+
+type="submit">
+
+
+Enviar
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+</form>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+{% endblock %}

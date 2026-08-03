@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+<div class="row justify-content-center align-items-center py-5">
+
+    <div class="col-xl-5 col-lg-6 col-md-8">
+
+        <div class="card">
+
+            <div class="card-body p-5">
+
+                <div class="text-center mb-5">
+
+                    <div class="mb-3">
+
+                        <i class="bi bi-shield-lock-fill display-2 text-primary"></i>
+
+                    </div>
+
+                    <h2 class="fw-bold">
+
+                        Login do Administrador
+
+                    </h2>
+
+                    <p class="text-muted mb-0">
+
+                        Área restrita para gerenciamento das manifestações do sistema.
+
+                    </p>
+
+                </div>
+
+                <form method="POST">
+
+                    <div class="mb-4">
+
+                        <label for="usuario" class="form-label">
+
+                            Usuário
+
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-person-fill"></i>
+
+                            </span>
+
+                            <input
+                                type="text"
+                                id="usuario"
+                                name="usuario"
+                                class="form-control"
+                                placeholder="Digite seu usuário"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label for="senha" class="form-label">
+
+                            Senha
+
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-lock-fill"></i>
+
+                            </span>
+
+                            <input
+                                type="password"
+                                id="senha"
+                                name="senha"
+                                class="form-control"
+                                placeholder="Digite sua senha"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary w-100 py-2">
+
+                        <i class="bi bi-box-arrow-in-right"></i>
+
+                        Entrar
+
+                    </button>
+
+                </form>
+
+                <hr class="my-4">
+
+                <div class="text-center">
+
+                    <p class="text-muted mb-0">
+
+                        Apenas administradores podem acessar esta área.
+
+                    </p>
+
+                    <a
+                        href="{{ url_for('index') }}"
+                        class="btn btn-outline-secondary mt-3">
+
+                        <i class="bi bi-arrow-left"></i>
+
+                        Voltar para a página inicial
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

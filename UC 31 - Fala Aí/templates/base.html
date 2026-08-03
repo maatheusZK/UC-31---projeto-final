@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        FalaAí - Ouvidoria
+    </title>
+
+
+    <!-- Bootstrap -->
+
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+
+    <!-- Bootstrap Icons -->
+
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet">
+
+
+    <!-- CSS Personalizado -->
+
+    <link 
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================
+        SIDEBAR
+    ========================== -->
+
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+
+            <h3>
+
+                <i class="bi bi-chat-square-text"></i>
+
+                FalaAí
+
+            </h3>
+
+
+            <small>
+
+                Sistema de Ouvidoria
+
+            </small>
+
+
+        </div>
+
+
+
+        <nav class="nav flex-column">
+
+
+
+            <a 
+            href="{{ url_for('index') }}"
+            class="nav-link">
+
+
+                <i class="bi bi-house-door"></i>
+
+                Início
+
+
+            </a>
+
+
+
+
+
+            <a 
+            href="{{ url_for('cadastrar') }}"
+            class="nav-link">
+
+
+                <i class="bi bi-send"></i>
+
+                Enviar manifestação
+
+
+            </a>
+
+
+
+
+
+
+            {% if session.get('admin') %}
+
+
+
+            <a 
+            href="{{ url_for('mensagens') }}"
+            class="nav-link">
+
+
+                <i class="bi bi-inbox"></i>
+
+                Gerenciar mensagens
+
+
+            </a>
+
+
+
+
+
+            <a 
+            href="{{ url_for('logout') }}"
+            class="nav-link">
+
+
+                <i class="bi bi-box-arrow-right"></i>
+
+                Sair
+
+
+            </a>
+
+
+
+
+            {% else %}
+
+
+
+            <a 
+            href="{{ url_for('login') }}"
+            class="nav-link">
+
+
+                <i class="bi bi-shield-lock"></i>
+
+                Área administrativa
+
+
+            </a>
+
+
+
+            {% endif %}
+
+
+
+
+
+            <a 
+            href="{{ url_for('sobre') }}"
+            class="nav-link">
+
+
+                <i class="bi bi-info-circle"></i>
+
+                Sobre
+
+
+            </a>
+
+
+
+        </nav>
+
+
+
+
+
+        <div class="sidebar-footer">
+
+
+            <button 
+            onclick="alternarTema()"
+            class="btn btn-theme w-100">
+
+
+                <i class="bi bi-moon-stars"></i>
+
+                Alterar tema
+
+
+            </button>
+
+
+        </div>
+
+
+
+    </aside>
+
+
+
+
+
+
+
+    <!-- ==========================
+        CONTEÚDO PRINCIPAL
+    ========================== -->
+
+
+    <main class="content">
+
+
+
+
+
+    <!-- NAVBAR -->
+
+
+    <header class="topbar">
+
+
+
+        <div>
+
+
+            <h5>
+
+                FalaAí
+
+            </h5>
+
+
+            <span>
+
+                Sugestões e Reclamações Anônimas
+
+            </span>
+
+
+
+        </div>
+
+
+
+
+
+        {% if session.get('admin') %}
+
+
+        <div class="admin-info">
+
+
+            <i class="bi bi-person-circle"></i>
+
+
+            {{ session.get('admin') }}
+
+
+        </div>
+
+
+
+        {% endif %}
+
+
+
+    </header>
+
+
+
+
+
+
+
+    <!-- ALERTAS FLASH -->
+
+
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+
+
+    {% if mensagens %}
+
+
+
+    {% for categoria, mensagem in mensagens %}
+
+
+    <div 
+    class="alert alert-{{ categoria }} alert-dismissible fade show">
+
+
+        {{ mensagem }}
+
+
+
+        <button
+
+        type="button"
+
+        class="btn-close"
+
+        data-bs-dismiss="alert">
+
+        </button>
+
+
+
+    </div>
+
+
+
+    {% endfor %}
+
+
+
+    {% endif %}
+
+
+    {% endwith %}
+
+
+
+
+
+
+
+    <!-- CONTEÚDO DAS PÁGINAS -->
+
+
+    <section class="page-container">
+
+
+    {% block conteudo %}
+
+
+    {% endblock %}
+
+
+    </section>
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+    <!-- Bootstrap JS -->
+
+
+    <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+
+
+
+    <!-- DARK MODE -->
+
+
+    <script>
+
+
+    function alternarTema(){
+
+
+        document.body.classList.toggle("dark-mode");
+
+
+
+        let tema = document.body.classList.contains("dark-mode");
+
+
+
+        localStorage.setItem(
+            "dark-mode",
+            tema
+        );
+
+
+    }
+
+
+
+
+
+    window.onload = function(){
+
+
+        let tema = localStorage.getItem(
+            "dark-mode"
+        );
+
+
+
+        if(tema === "true"){
+
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+
+        }
+
+
+    }
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
