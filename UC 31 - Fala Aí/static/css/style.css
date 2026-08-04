@@ -1,0 +1,645 @@
+/* =====================================================
+   FalaAí - Sistema de Ouvidoria
+   Design moderno institucional
+===================================================== */
+
+
+/* =====================
+   VARIÁVEIS
+===================== */
+
+:root {
+
+    --primary:
+        #0066a1;
+
+    --primary-dark:
+        #004b78;
+
+    --secondary:
+        #00a6d6;
+
+    --success:
+        #198754;
+
+    --danger:
+        #dc3545;
+
+    --warning:
+        #ffc107;
+
+    --background:
+        #f4f7fb;
+
+    --surface:
+        #ffffff;
+
+    --text:
+        #263238;
+
+    --muted:
+        #6c757d;
+
+    --border:
+        #e1e8ef;
+
+    --shadow:
+        0 15px 35px rgba(0,0,0,.08);
+
+    --radius:
+        18px;
+
+}
+
+
+
+/* =====================
+   RESET
+===================== */
+
+
+* {
+
+    box-sizing:
+        border-box;
+
+}
+
+
+
+body {
+
+    margin:
+        0;
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    min-height:
+        100vh;
+
+}
+
+
+
+/* =====================
+   ANIMAÇÃO GLOBAL
+===================== */
+
+
+main {
+
+    animation:
+        fade .5s ease;
+
+}
+
+
+@keyframes fade {
+
+    from {
+
+        opacity:0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* =====================
+   NAVBAR
+===================== */
+
+
+.navbar {
+
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        ) !important;
+
+
+    padding:
+        15px 0;
+
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.15);
+
+}
+
+
+
+.navbar-brand {
+
+    font-size:
+        1.6rem;
+
+    font-weight:
+        800;
+
+}
+
+
+
+.nav-link {
+
+    font-weight:
+        500;
+
+    transition:
+        .3s;
+
+}
+
+
+
+.nav-link:hover {
+
+    opacity:
+        .8;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+
+/* =====================
+   TÍTULOS
+===================== */
+
+
+h1,
+h2,
+h3 {
+
+    font-weight:
+        700;
+
+}
+
+
+
+.display-4 {
+
+    color:
+        var(--primary);
+
+}
+
+
+
+/* =====================
+   CARDS
+===================== */
+
+
+.card {
+
+    background:
+        var(--surface);
+
+    border:
+        none;
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        .35s;
+
+}
+
+
+
+.card:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.12);
+
+}
+
+
+
+.card-header {
+
+    padding:
+        18px;
+
+    font-weight:
+        700;
+
+}
+
+
+
+/* =====================
+   CARDS DA HOME
+===================== */
+
+.text-muted {
+
+    color:
+        white !important;
+
+}
+
+.card-body i {
+
+    transition:
+        .3s;
+
+}
+
+
+
+.card:hover i {
+
+    transform:
+        scale(1.15);
+
+}
+
+
+
+/* =====================
+   BOTÕES
+===================== */
+
+
+.btn {
+
+    border-radius:
+        12px;
+
+    padding:
+        11px 25px;
+
+    font-weight:
+        600;
+
+    transition:
+        .3s;
+
+}
+
+
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    border:
+        none;
+
+}
+
+
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(0,102,161,.3);
+
+}
+
+
+
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-success:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+
+/* =====================
+   FORMULÁRIOS
+===================== */
+
+
+.form-control,
+.form-select {
+
+    border-radius:
+        12px;
+
+    padding:
+        13px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        #fff;
+
+}
+
+
+
+.form-control:focus,
+.form-select:focus {
+
+    border-color:
+        var(--secondary);
+
+    box-shadow:
+        0 0 0 .25rem rgba(0,166,214,.18);
+
+}
+
+
+
+textarea {
+
+    resize:
+        none;
+
+}
+
+
+
+/* =====================
+   TABELAS
+===================== */
+
+
+.table {
+
+    border-radius:
+        var(--radius);
+
+    overflow:
+        hidden;
+
+    background:
+        white;
+
+}
+
+
+
+.table thead {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:
+        white;
+
+}
+
+
+
+.table tbody tr {
+
+    transition:
+        .25s;
+
+}
+
+
+
+.table tbody tr:hover {
+
+    background:
+        #edf7fc;
+
+    transform:
+        scale(1.01);
+
+}
+
+
+
+/* =====================
+   DASHBOARD
+===================== */
+
+
+.dashboard-card {
+
+    padding:
+        30px;
+
+}
+
+
+
+.dashboard-card h2 {
+
+    font-size:
+        3rem;
+
+    color:
+        var(--primary);
+
+}
+
+
+
+/* =====================
+   ALERTAS
+===================== */
+
+
+.alert {
+
+    border:
+        none;
+
+    border-radius:
+        14px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.05);
+
+}
+
+
+
+/* =====================
+   FOOTER
+===================== */
+
+
+footer {
+
+    margin-top:
+        auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #003b5c,
+            #0066a1
+        ) !important;
+
+}
+
+
+
+/* =====================
+   LOGIN
+===================== */
+
+
+.login-card {
+
+    max-width:
+        450px;
+
+    margin:
+        auto;
+
+}
+
+
+
+/* =====================
+   DARK MODE
+===================== */
+
+
+.dark-mode {
+
+    --background:
+        #121212;
+
+    --surface:
+        #1e1e1e;
+
+    --text:
+        #eeeeee;
+
+}
+
+
+
+.dark-mode .card {
+
+    color:
+        var(--text);
+
+}
+
+
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+
+    background:
+        #222;
+
+    color:
+        white;
+
+    border-color:
+        #444;
+
+}
+
+
+
+.dark-mode .table {
+
+    background:
+        #1e1e1e;
+
+    color:
+        white;
+
+}
+
+
+
+/* =====================
+   RESPONSIVIDADE
+===================== */
+
+
+@media(max-width:768px){
+
+
+    h1 {
+
+        font-size:
+            2rem;
+
+    }
+
+
+    .card {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .table {
+
+        font-size:
+            .85rem;
+
+    }
+
+
+    .btn {
+
+        width:
+            100%;
+
+    }
+
+
+}

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Dashboard
+{% endblock %}
+
+{% block conteudo %}
+
+<h1 class="mb-5">
+
+    Painel Administrativo
+
+</h1>
+
+<div class="row g-4">
+
+    <div class="col-lg-3">
+
+        <div class="card text-center shadow">
+
+            <div class="card-body">
+
+                <h2>
+
+                    {{ total }}
+
+                </h2>
+
+                <p>
+
+                    Total
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-3">
+
+        <div class="card text-center shadow">
+
+            <div class="card-body">
+
+                <h2>
+
+                    {{ sugestoes }}
+
+                </h2>
+
+                <p>
+
+                    Sugestões
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-3">
+
+        <div class="card text-center shadow">
+
+            <div class="card-body">
+
+                <h2>
+
+                    {{ reclamacoes }}
+
+                </h2>
+
+                <p>
+
+                    Reclamações
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-3">
+
+        <div class="card text-center shadow">
+
+            <div class="card-body">
+
+                <h2>
+
+                    {{ elogios }}
+
+                </h2>
+
+                <p>
+
+                    Elogios
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="mt-5">
+
+    <a
+        href="{{ url_for('mensagens') }}"
+        class="btn btn-primary">
+
+        Gerenciar Mensagens
+
+    </a>
+
+</div>
+
+{% endblock %}
