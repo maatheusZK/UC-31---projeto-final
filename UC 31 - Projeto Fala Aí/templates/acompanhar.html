@@ -1,0 +1,445 @@
+{% extends "base.html" %}
+
+
+{% block titulo %}Acompanhar Mensagem{% endblock %}
+
+
+
+{% block conteudo %}
+
+
+<div class="container">
+
+
+    <div class="row justify-content-center">
+
+
+        <div class="col-lg-8">
+
+
+
+            <div class="card shadow mb-4">
+
+
+                <div class="card-header bg-primary text-white">
+
+
+                    <h2 class="mb-0">
+
+                        <i class="bi bi-search"></i>
+
+                        Acompanhar mensagem
+
+                    </h2>
+
+
+                </div>
+
+
+
+                <div class="card-body">
+
+
+
+                    <p>
+
+                        Digite o código recebido após enviar sua mensagem.
+
+                        Sua identidade continua protegida.
+
+                    </p>
+
+
+
+
+                    <form method="POST">
+
+
+                        <div class="mb-3">
+
+
+                            <label
+
+                            for="codigo"
+
+                            class="form-label">
+
+
+                                Código de acompanhamento
+
+
+                            </label>
+
+
+
+                            <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="codigo"
+
+                            name="codigo"
+
+                            placeholder="Exemplo: FA-2026-X7K92"
+
+                            required>
+
+
+
+                        </div>
+
+
+
+
+                        <button
+
+                        type="submit"
+
+                        class="btn btn-primary">
+
+
+                            <i class="bi bi-search"></i>
+
+                            Consultar
+
+
+                        </button>
+
+
+
+                    </form>
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+            {% if mensagem %}
+
+
+
+            <div class="card shadow">
+
+
+
+                <div class="card-header bg-success text-white">
+
+
+                    <h3 class="mb-0">
+
+                        Mensagem encontrada
+
+                    </h3>
+
+
+                </div>
+
+
+
+
+                <div class="card-body">
+
+
+
+                    <div class="mb-3">
+
+
+                        <strong>
+
+                            Código:
+
+                        </strong>
+
+
+                        <span class="badge bg-secondary">
+
+                            {{ mensagem.codigo }}
+
+                        </span>
+
+
+                    </div>
+
+
+
+
+
+                    <p>
+
+
+                        <strong>
+
+                            Tipo:
+
+                        </strong>
+
+
+                        {{ mensagem.tipo }}
+
+
+                    </p>
+
+
+
+
+
+                    <p>
+
+
+                        <strong>
+
+                            Título:
+
+                        </strong>
+
+
+                        {{ mensagem.titulo }}
+
+
+                    </p>
+
+
+
+
+
+                    <p>
+
+
+                        <strong>
+
+                            Descrição:
+
+                        </strong>
+
+
+                        {{ mensagem.descricao }}
+
+
+                    </p>
+
+
+
+
+
+                    <hr>
+
+
+
+
+
+                    <h5>
+
+                        Situação da mensagem
+
+                    </h5>
+
+
+
+
+
+
+                    {% if mensagem.status == "Resolvido" %}
+
+
+
+                    <div class="alert alert-success">
+
+
+                        🟢
+
+                        <strong>
+
+                            {{ mensagem.status }}
+
+                        </strong>
+
+
+
+                    </div>
+
+
+
+                    {% elif mensagem.status == "Em análise" %}
+
+
+
+
+                    <div class="alert alert-warning">
+
+
+                        🟡
+
+                        <strong>
+
+                            {{ mensagem.status }}
+
+                        </strong>
+
+
+
+                    </div>
+
+
+
+
+                    {% else %}
+
+
+
+
+                    <div class="alert alert-danger">
+
+
+                        🔴
+
+                        <strong>
+
+                            {{ mensagem.status }}
+
+                        </strong>
+
+
+
+                    </div>
+
+
+
+
+                    {% endif %}
+
+
+
+
+
+
+
+                    {% if mensagem.descricao_status %}
+
+
+                    <p class="text-muted">
+
+                        {{ mensagem.descricao_status }}
+
+                    </p>
+
+
+                    {% endif %}
+
+
+
+
+
+
+                    <p>
+
+
+                        <strong>
+
+                            Enviada em:
+
+                        </strong>
+
+
+                        {{ mensagem.data }}
+
+                        às
+
+                        {{ mensagem.hora }}
+
+
+                    </p>
+
+
+
+
+
+                    <hr>
+
+
+
+
+
+                    <h5>
+
+                        Resposta da instituição
+
+                    </h5>
+
+
+
+
+
+                    {% if mensagem.resposta %}
+
+
+
+                    <div class="alert alert-info">
+
+
+                        {{ mensagem.resposta }}
+
+
+                    </div>
+
+
+
+
+                    {% else %}
+
+
+
+
+                    <div class="alert alert-secondary">
+
+
+                        Ainda não existe uma resposta.
+
+                        Aguarde a análise da instituição.
+
+
+                    </div>
+
+
+
+
+                    {% endif %}
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            {% endif %}
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+{% endblock %}

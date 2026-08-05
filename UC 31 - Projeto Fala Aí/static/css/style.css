@@ -1,0 +1,613 @@
+/* ===========================
+   RESET
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0d6efd;
+    --primary-dark: #0b5ed7;
+
+    --success: #198754;
+    --warning: #ffc107;
+    --danger: #dc3545;
+
+    --background: #f5f7fa;
+    --surface: #ffffff;
+
+    --text: #212529;
+    --text-light: #6c757d;
+
+    --border: #dee2e6;
+
+    --shadow: 0 8px 25px rgba(0,0,0,.08);
+
+    --radius: 14px;
+
+    --transition: .3s ease;
+}
+
+/* ===========================
+   DARK MODE
+=========================== */
+
+body.dark {
+    --background: #121212;
+    --surface: #1f1f1f;
+
+    --text: #f5f5f5;
+    --text-light: #c7c7c7;
+
+    --border: #3a3a3a;
+
+    --shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+body {
+    background: var(--background);
+    color: var(--text);
+
+    font-family: "Segoe UI", sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: var(--transition);
+}
+
+main {
+    flex: 1;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar {
+    box-shadow: var(--shadow);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+#darkMode {
+    transition: var(--transition);
+}
+
+#darkMode:hover {
+    transform: rotate(20deg);
+}
+
+/* ===========================
+   CARDS
+=========================== */
+
+.card {
+    border: none;
+
+    border-radius: var(--radius);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card-header {
+    border-bottom: none;
+
+    font-weight: bold;
+}
+
+.card-footer {
+    background: transparent;
+}
+
+/* ===========================
+   BOTÕES
+=========================== */
+
+.btn {
+    border-radius: 10px;
+
+    transition: .25s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+/* ===========================
+   FORMULÁRIOS
+=========================== */
+
+.form-control,
+.form-select {
+    background: var(--surface);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: var(--surface);
+
+    color: var(--text);
+
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 .2rem rgba(13, 110, 253, .20);
+}
+
+textarea {
+    resize: none;
+}
+
+label {
+    font-weight: 600;
+}
+
+/* ===========================
+   ALERTAS
+=========================== */
+
+.alert {
+    border: none;
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow);
+
+    animation: aparecer .4s ease;
+}
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge {
+    font-size: .8rem;
+
+    padding: .55rem .8rem;
+}
+
+/* ===========================
+   CONTADORES
+=========================== */
+
+.card h2 {
+    font-size: 2.5rem;
+
+    font-weight: bold;
+}
+
+.card h5 {
+    margin-bottom: .8rem;
+}
+
+/* ===========================
+   LISTAS
+=========================== */
+
+.list-group-item {
+    background: var(--surface);
+
+    color: var(--text);
+
+    border-color: var(--border);
+}
+
+/* ===========================
+   LINKS
+=========================== */
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer {
+    margin-top: auto;
+
+    box-shadow: 0 -4px 20px rgba(0,0,0,.08);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ===========================
+   ANIMAÇÕES
+=========================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.card,
+.alert {
+    animation: aparecer .5s ease;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* ===========================
+   HERO DA PÁGINA INICIAL
+=========================== */
+
+section.text-center.py-5 {
+    background: linear-gradient(135deg, #0d6efd, #3b82f6);
+
+    color: white;
+
+    border-radius: var(--radius);
+
+    padding: 70px 40px !important;
+
+    margin-bottom: 40px;
+
+    box-shadow: var(--shadow);
+}
+
+section.text-center.py-5 .display-4 {
+    font-weight: 700;
+}
+
+section.text-center.py-5 .lead {
+    color: rgba(255, 255, 255, .9) !important;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+section.text-center.py-5 .btn {
+    margin-top: 15px;
+}
+
+/* ===========================
+   ÍCONES
+=========================== */
+
+.display-1,
+.display-4 {
+    transition: var(--transition);
+}
+
+.card:hover .display-4 {
+    transform: scale(1.08);
+}
+
+/* ===========================
+   BOTÕES DOS CARDS
+=========================== */
+
+.card-footer .btn {
+    min-width: 115px;
+}
+
+/* ===========================
+   TÍTULOS
+=========================== */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-light);
+
+    line-height: 1.7;
+}
+
+/* ===========================
+   FORMULÁRIOS
+=========================== */
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa0a6;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+    color: #b8b8b8;
+}
+
+/* ===========================
+   TABELAS (caso sejam usadas)
+=========================== */
+
+.table {
+    background: var(--surface);
+
+    color: var(--text);
+}
+
+.table th {
+    background: var(--primary);
+
+    color: white;
+}
+
+/* ===========================
+   TRANSIÇÕES
+=========================== */
+
+body,
+.card,
+.navbar,
+.form-control,
+.form-select,
+.list-group-item,
+footer,
+.btn {
+    transition: all .3s ease;
+}
+
+/* ===========================
+   DARK MODE
+=========================== */
+
+body.dark .navbar {
+    background: #1a1a1a !important;
+}
+
+body.dark footer {
+    background: #1a1a1a !important;
+}
+
+body.dark .card {
+    background: #202020;
+}
+
+body.dark .card-header.bg-primary {
+    background: #0b5ed7 !important;
+}
+
+body.dark .card-header.bg-warning {
+    color: #000;
+}
+
+body.dark .alert {
+    color: white;
+}
+
+body.dark .list-group-item {
+    background: #242424;
+}
+
+body.dark .form-control,
+body.dark .form-select {
+    background: #2b2b2b;
+
+    color: white;
+
+    border-color: #555;
+}
+
+body.dark .form-control:focus,
+body.dark .form-select:focus {
+    background: #2b2b2b;
+
+    color: white;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+
+@media (max-width: 992px) {
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    #darkMode {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .card-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-footer .btn,
+    .card-footer form,
+    .card-footer form button {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    section.text-center.py-5 {
+        padding: 45px 20px !important;
+    }
+
+    .display-4 {
+        font-size: 2.2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .d-flex.gap-2 {
+        flex-direction: column;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .display-4 {
+        font-size: 1.8rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 1.2rem;
+    }
+
+    footer {
+        font-size: .9rem;
+    }
+
+}
+
+/* ===========================
+   SELEÇÃO DE TEXTO
+=========================== */
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+/* ===========================
+   IMAGENS
+=========================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===========================
+   UTILITÁRIOS
+=========================== */
+
+.shadow-custom {
+    box-shadow: var(--shadow);
+}
+
+.rounded-custom {
+    border-radius: var(--radius);
+}
+
+.text-muted {
+    color: var(--text-light) !important;
+}
+
+/* ===========================
+   ACESSIBILIDADE
+=========================== */
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid rgba(13, 110, 253, .35);
+    outline-offset: 2px;
+}
+
+/* ===========================
+   FIM DO ARQUIVO
+=========================== */

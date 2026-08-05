@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block titulo %}Início{% endblock %}
+
+{% block conteudo %}
+
+<section class="text-center py-5">
+
+    <h1 class="display-4 fw-bold mb-3">
+        Bem-vindo ao FalaAí
+    </h1>
+
+    <p class="lead text-muted mb-4">
+        Um canal anônimo para enviar sugestões, elogios e reclamações para sua escola, empresa ou organização.
+    </p>
+
+    <a href="{{ url_for('cadastrar') }}" class="btn btn-primary btn-lg">
+        <i class="bi bi-chat-dots-fill"></i>
+        Enviar Mensagem
+    </a>
+
+</section>
+
+<div class="row g-4 mt-4">
+
+    <div class="col-md-4">
+
+        <div class="card h-100 shadow-sm">
+
+            <div class="card-body text-center">
+
+                <i class="bi bi-lightbulb-fill display-4 text-warning"></i>
+
+                <h3 class="mt-3">
+                    Sugestões
+                </h3>
+
+                <p>
+                    Compartilhe ideias para melhorar o ambiente.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card h-100 shadow-sm">
+
+            <div class="card-body text-center">
+
+                <i class="bi bi-emoji-smile-fill display-4 text-success"></i>
+
+                <h3 class="mt-3">
+                    Elogios
+                </h3>
+
+                <p>
+                    Reconheça pessoas, equipes e boas iniciativas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card h-100 shadow-sm">
+
+            <div class="card-body text-center">
+
+                <i class="bi bi-exclamation-triangle-fill display-4 text-danger"></i>
+
+                <h3 class="mt-3">
+                    Reclamações
+                </h3>
+
+                <p>
+                    Informe problemas para que possam ser resolvidos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="mt-5">
+
+    <h2 class="mb-4">
+
+        Últimas mensagens
+
+    </h2>
+
+    {% if ultimas %}
+
+    {% for mensagem in ultimas %}
+
+    <div class="card mb-3 shadow-sm">
+
+        <div class="card-body">
+
+            <span class="badge bg-primary">
+
+                {{ mensagem.tipo }}
+
+            </span>
+
+            <h5 class="mt-3">
+
+                {{ mensagem.titulo }}
+
+            </h5>
+
+            <p>
+
+                {{ mensagem.descricao }}
+
+            </p>
+
+            <p>
+                Código: {{ mensagem.codigo }}
+            </p>
+
+            <small class="text-muted">
+
+                {{ mensagem.data }} às {{ mensagem.hora }}
+
+
+            </small>
+
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    {% else %}
+
+    <div class="alert alert-info">
+
+        Nenhuma mensagem cadastrada.
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<section class="mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h2 class="mb-3">
+                Como funciona?
+            </h2>
+
+            <ul>
+
+                <li>Escolha o tipo da mensagem.</li>
+
+                <li>Escreva um título.</li>
+
+                <li>Descreva sua mensagem.</li>
+
+                <li>Envie de forma totalmente anônima.</li>
+
+                <li>O administrador poderá visualizar e gerenciar as mensagens.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

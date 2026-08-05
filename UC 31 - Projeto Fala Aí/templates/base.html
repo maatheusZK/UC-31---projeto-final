@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}FalaAí{% endblock %}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">
+                <i class="bi bi-chat-left-text-fill"></i>
+                FalaAí
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ url_for('index') }}">
+                            Início
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ url_for('cadastrar') }}">
+                            Enviar mensagem
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ url_for('acompanhar') }}">
+                            Acompanhar
+                        </a>
+
+                    </li>
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ url_for('sobre') }}">
+                            Sobre
+                        </a>
+
+                    </li>
+
+
+
+                    {% if session.get("admin") %}
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ url_for('mensagens') }}">
+
+                            <i class="bi bi-speedometer2"></i>
+
+                            Painel
+
+                        </a>
+
+                    </li>
+
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link text-warning" href="{{ url_for('logout') }}">
+
+                            <i class="bi bi-box-arrow-right"></i>
+
+                            Sair
+
+                        </a>
+
+                    </li>
+
+
+
+                    {% else %}
+
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ url_for('login') }}">
+
+                            <i class="bi bi-person-lock"></i>
+
+                            Login
+
+                        </a>
+
+                    </li>
+
+
+                    {% endif %}
+
+                    <button id="darkMode" class="btn btn-outline-light">
+
+                        <i class="bi bi-moon-stars-fill"></i>
+
+                    </button>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <main class="container mt-4">
+
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+
+        {% if mensagens %}
+
+        {% for categoria, mensagem in mensagens %}
+
+        <div class="alert alert-{{ categoria }} alert-dismissible fade show">
+
+            {{ mensagem }}
+
+            <button
+                class="btn-close"
+                data-bs-dismiss="alert">
+            </button>
+
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+
+        {% endwith %}
+
+        {% block conteudo %}
+        {% endblock %}
+
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+
+        <p class="mb-0">
+            © 2026 - Projeto FalaAí
+        </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+[
+    {
+        "id": 2,
+        "codigo": "FA-2026-TXB4J",
+        "tipo": "Elogio",
+        "titulo": "Professores",
+        "descricao": "Os educadores da instituição são ótimos profissionais.",
+        "status": "Em análise",
+        "resposta": "",
+        "data": "04/08/2026",
+        "hora": "21:14"
+    },
+    {
+        "id": 2,
+        "codigo": "FA-2026-G5V7F",
+        "tipo": "Elogio",
+        "titulo": "Organização dos eventos",
+        "descricao": "A organização dos eventos da instituição melhorou bastante e merece reconhecimento",
+        "status": "Em análise",
+        "resposta": "",
+        "data": "04/08/2026",
+        "hora": "21:29"
+    },
+    {
+        "id": 3,
+        "codigo": "FA-2026-3VBI1",
+        "tipo": "Reclamação",
+        "titulo": "Problemas com a internet",
+        "descricao": "A conexão com a internet apresenta falhas em alguns ambientes, dificultando algumas atividades.",
+        "status": "Em análise",
+        "resposta": "",
+        "data": "04/08/2026",
+        "hora": "21:29"
+    },
+    {
+        "id": 4,
+        "codigo": "FA-2026-LL9S9",
+        "tipo": "Sugestão",
+        "titulo": "Mais ventiladores nas salas",
+        "descricao": "As salas ficam muito quentes durante a tarde. Seria interessante instalar mais ventiladores.",
+        "status": "Em análise",
+        "resposta": "",
+        "data": "04/08/2026",
+        "hora": "21:30"
+    }
+]
